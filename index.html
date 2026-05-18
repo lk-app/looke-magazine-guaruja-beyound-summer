@@ -140,6 +140,7 @@ looke.app
 
 <style type="text/css">
 .catalog_logo,
+#logoBar,
 #logoBar img {
 	left: 50% !important;
 	transform: translateX(-50%);
@@ -184,6 +185,32 @@ looke.app
 	var sendvisitinfo = function(type,page){};
 
 	(function() {
+		function centerTopLogo() {
+			var logoBar = document.getElementById("logoBar");
+			if (logoBar) {
+				logoBar.style.left = "50%";
+				logoBar.style.transform = "translateX(-50%)";
+			}
+
+			var desktopLogo = document.querySelector(".catalog_logo");
+			if (desktopLogo) {
+				desktopLogo.style.left = "50%";
+				desktopLogo.style.transform = "translateX(-50%)";
+			}
+
+			var topLogoImg = document.querySelector('#logoBar img[src*="appLogoIcon"]');
+			if (topLogoImg) {
+				topLogoImg.style.left = "50%";
+				topLogoImg.style.transform = "translateX(-50%)";
+			}
+
+			var phoneLogoImg = document.querySelector('.phoneTopBar .button img[src*="appLogoIcon"]');
+			if (phoneLogoImg && phoneLogoImg.parentElement) {
+				phoneLogoImg.parentElement.style.left = "50%";
+				phoneLogoImg.parentElement.style.transform = "translateX(-50%)";
+			}
+		}
+
 		var bgAudio = document.createElement("audio");
 		bgAudio.id = "bgmAudio";
 		bgAudio.src = "files/RUNWAY.MP3";
@@ -233,6 +260,10 @@ looke.app
 			document.body.appendChild(bgAudio);
 			document.body.appendChild(toggleBtn);
 			playAudio();
+			centerTopLogo();
+			window.setTimeout(centerTopLogo, 300);
+			window.setTimeout(centerTopLogo, 1200);
+			window.addEventListener("resize", centerTopLogo);
 
 			var unlock = function() {
 				if (bgAudio.paused) {
