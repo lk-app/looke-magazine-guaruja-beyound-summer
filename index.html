@@ -148,7 +148,7 @@ looke.app
 #bgmToggle {
 	position: fixed;
 	right: 16px;
-	bottom: 16px;
+	bottom: 36px;
 	width: 42px;
 	height: 42px;
 	border: 0;
@@ -188,8 +188,10 @@ looke.app
 		bgAudio.id = "bgmAudio";
 		bgAudio.src = "files/RUNWAY.MP3";
 		bgAudio.loop = true;
+		bgAudio.autoplay = true;
 		bgAudio.preload = "auto";
 		bgAudio.volume = 0.3;
+		bgAudio.setAttribute("autoplay", "autoplay");
 		bgAudio.setAttribute("playsinline", "playsinline");
 
 		var toggleBtn = document.createElement("button");
