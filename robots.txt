@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lk-app.github.io/looke-magazine-guaruja-beyond-summer/sitemap.xml
